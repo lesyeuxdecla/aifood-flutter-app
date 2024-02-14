@@ -1,4 +1,4 @@
-import 'package:aifood/Screens/HomePage/HomePage.dart';
+import 'package:aifood/Screens/HomePage/homepage.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
