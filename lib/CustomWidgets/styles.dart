@@ -1,36 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-TextStyle textBold(double tamanho) {
-  return GoogleFonts.dmSans(
+//Estilo roboto negrito
+TextStyle textRobotoBold(double tamanho) {
+  return GoogleFonts.roboto(
     fontSize: tamanho,
     fontWeight: FontWeight.bold,
   );
 }
 
-// estilo dmsans
-TextStyle textdmSans(double tamanho) {
-  return GoogleFonts.dmSans(fontSize: tamanho, 
-  fontWeight: FontWeight.bold);
+//Estilo roboto 300
+TextStyle textRoboto300(double tamanho) {
+  return GoogleFonts.roboto(
+    fontSize: tamanho,
+    fontWeight: FontWeight.w300,
+  );
 }
 
-Widget espacoHorizontal(double espaco){
+//Cria um espaço na horizontal
+Widget espacoHorizontal(double espaco) {
   return SizedBox(width: espaco);
 }
 
-Widget espacoVertical(double espaco){
+//Cria um espaço na vertical
+Widget espacoVertical(double espaco) {
   return SizedBox(height: espaco);
 }
 
-// estilo nunito
+//Estilo Nunito 300
 TextStyle textNunito300(double tamanho) {
-  return GoogleFonts.nunito(fontSize: tamanho, 
-  fontWeight: FontWeight.w300);
+  return GoogleFonts.nunitoSans(
+    fontSize: tamanho,
+    fontWeight: FontWeight.w300,
+  );
 }
 
-//estilo nunito
-
+//Estilo Nunito 300
 TextStyle textNunitoBold(double tamanho) {
-  return GoogleFonts.nunito(fontSize: tamanho, 
-  fontWeight: FontWeight.w700);
+  return GoogleFonts.nunitoSans(
+    fontSize: tamanho,
+    fontWeight: FontWeight.w700,
+  );
+}
+
+TextStyle textNunitoWhiteBold(double tamanho) {
+  return GoogleFonts.nunitoSans(
+    color: Colors.white,
+    fontSize: tamanho,
+    fontWeight: FontWeight.bold
+  );
 }

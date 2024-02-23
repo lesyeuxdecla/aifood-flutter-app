@@ -1,5 +1,7 @@
 import 'package:aifood/CustomWidgets/menuInferior.dart';
+import 'package:aifood/Screens/Busca/search_screen.dart';
 import 'package:aifood/Screens/Profile/profile_screen.dart';
+import 'package:aifood/Screens/TelaInicio/telainicio.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,17 +22,17 @@ class _HomePageState extends State<HomePage> {
   }
   //lista de páginas
   List<Widget> telas = const [
-    Text('Home'),
-    Text('Busca'),
+    TelaInicio(),
+    TelaBusca(),
     Text('Pedidos'),
     ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: telas.elementAt(itemSelecionado),
-        bottomNavigationBar: bottomNavigationBar(itemSelecionado, nextStation)
-     );
+      body:telas.elementAt(itemSelecionado),
+      bottomNavigationBar: bottomNavigationBar(itemSelecionado, nextStation),
+    );
   }
 }
 
