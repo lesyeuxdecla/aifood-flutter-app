@@ -10,11 +10,12 @@ class Slide extends StatefulWidget {
 }
 
 class _SlideState extends State<Slide> {
+  //objeto que define o controle das páginas
   PageController pageController = PageController();
   List<double> progresso = [0.0, 0.0, 0.0];
   int qtdPaginas = 3;
   int paginaAtual = 0;
-
+  //método que é chamado antes da página ser construída
   @override
   void initState() {
     super.initState();
@@ -22,47 +23,52 @@ class _SlideState extends State<Slide> {
     iniciarProgresso();
   }
 
+  //método para mudar de página peridioticamente
   nextPage() {
     Timer.periodic(const Duration(seconds: 3), (timer) {
-      int proximaPagina = paginaAtual + 1;
-      if (proximaPagina >= qtdPaginas) {
-        proximaPagina = 0;
-      }
-
-      pageController
-          .animateToPage(proximaPagina,
-              duration: const Duration(milliseconds: 300), curve: Curves.linear)
-          .then((_) {
-        setState(() {
-          paginaAtual = proximaPagina;
-          reset();
-        });
+      
+      int page = pageController.page!.round() + 1;
+      
+      if (page >= 3) {
+        pageController.animateToPage(0,
+            duration: const Duration(seconds: 2), curve: Curves.linear);
+      } else {
+        pageController.nextPage(
+            duration: const Duration(seconds: 2), curve: Curves.easeIn);
+            setState(() {
+        paginaAtual = page;
       });
+      }
     });
   }
 
-  void iniciarProgresso() {
+  //iniciar o progresso
+  void iniciarProgresso(){
     Timer.periodic(const Duration(milliseconds: 50), (timer) {
       setState(() {
-        if (progresso[paginaAtual] < 1) {
+        if(progresso[paginaAtual] < 1){
           progresso[paginaAtual] += 0.02;
-        } else {
+        }else {
           timer.cancel();
+          reset();
         }
       });
-    });
+     });
   }
-
-  void reset() {
-    for (int i; i < qtdPaginas; i++) {
+  //método para resetar a animação
+  void reset(){
+    for(int i = 0; i < qtdPaginas; i++){
       progresso[i] = 0.0;
     }
     iniciarProgresso();
   }
 
-  List<Widget> buildIndicator() {
+  //método para criar o indicator
+  List<Widget> buildIndicator(){
+
     List<Widget> lista = [];
-    for (int i = 0; i < qtdPaginas; i++) {
+
+    for(int i = 0; i < qtdPaginas; i++){
       lista.add(Container(
         width: 50,
         height: 5,
@@ -71,8 +77,7 @@ class _SlideState extends State<Slide> {
           borderRadius: BorderRadius.circular(8),
           value: progresso[i],
           backgroundColor: Colors.grey[200],
-          valueColor: AlwaysStoppedAnimation<Color>(
-              paginaAtual == i ? Colors.blue : Colors.grey),
+          valueColor: AlwaysStoppedAnimation<Color>(paginaAtual == i? Colors.blue :Colors.grey),
         ),
       ));
     }
@@ -109,13 +114,11 @@ class _SlideState extends State<Slide> {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: buildIndicator(),
-            ),
-          )
+          Padding(padding: const EdgeInsets.all(8), 
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: buildIndicator(),
+          ),)
         ],
       ),
     );
