@@ -48,8 +48,19 @@ class _TelaInicioState extends State<TelaInicio> {
             ),
           ),
           Slide(),
+        const Padding(
+              padding: EdgeInsets.all(8),
+              child: Row( 
+              children: [
+                Text('Últimas lojas'),
+                CircleAvatar(),
+                CircleAvatar()
+                ]
+                )
+            ),
         ],
       ),
+      
     );
   }
 }
