@@ -100,27 +100,44 @@ class _SlideState extends State<Slide> {
               Container(
                 width: double.infinity,
                 height: 200,
-                color: Colors.red,
-              ),
-              Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/pizza.gif'),
+                    fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Container(
                 width: double.infinity,
                 height: 200,
-                color: Colors.black,
-              ),
-              Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/massa.gif'),
+                    fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Container(
                 width: double.infinity,
                 height: 200,
-                color: Colors.green,
-              ),
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/sanduiche.gif'),
+                    fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
             ],
           ),
-          Padding(padding: const EdgeInsets.all(8), 
-          child: Row(
+          Padding(padding: const EdgeInsets.all(8),
+          child: 
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: buildIndicator(),
           ),)
         ],
-      ),
+      )
     );
   }
 }
+          

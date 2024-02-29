@@ -2,7 +2,7 @@ import 'package:aifood/CustomWidgets/menuInferior.dart';
 import 'package:aifood/Screens/Busca/search_screen.dart';
 import 'package:aifood/Screens/Profile/profile_screen.dart';
 import 'package:aifood/Screens/TelaInicio/telainicio.dart';
-import 'package:aifood/Screens/Pedidos/pedidos.dart';
+import 'package:aifood/Screens/telaPedido/telaPedido.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget> telas = const [
     TelaInicio(),
     TelaBusca(),
-    Pedidos(),
+    TelaPedido(),
     ProfileScreen(),
   ];
   @override

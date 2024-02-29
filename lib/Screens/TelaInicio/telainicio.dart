@@ -48,19 +48,54 @@ class _TelaInicioState extends State<TelaInicio> {
             ),
           ),
           Slide(),
-        const Padding(
-              padding: EdgeInsets.all(8),
-              child: Row( 
-              children: [
-                Text('Últimas lojas'),
-                CircleAvatar(),
-                CircleAvatar()
-                ]
-                )
+         const SizedBox(height: 20),
+          SizedBox(
+            width: double.infinity,
+            height: 120,
+            child: Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                children: [
+                  cardquatro(110, 100, Colors.green[300], "Mercado", "assets/mercado.png"),
+                  const SizedBox(width: 5),
+                  cardquatro(110, 100, Colors.yellow[300], "Padarias", "assets/bebidas.png"),
+                  const SizedBox(width: 5),
+                  cardquatro(110, 100, Colors.pink[200], "Promoções", "assets/sucos.png"),
+                  const SizedBox(width: 5),
+                  cardquatro(110, 100, Colors.deepPurple[200], "Bolos", "assets/bolo.png"),
+                  const SizedBox(width: 5),
+                  cardquatro(110, 100, Colors.orange[200], "Cafeteria", "assets/cafe.png"),
+                ],
+              ),
             ),
+          ),
+          const SizedBox(height: 30),
+          Text("Pra quem curte Padaria", style: textNunitoBold(18)),
+          const SizedBox(height: 20),
+          SizedBox(
+            width: double.infinity,
+            height: 180,
+            child: Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                children: [
+                  cardtres(Colors.deepPurple[50], "Pães", "assets/paes.jpg"),
+                  const SizedBox(width: 5),
+                  cardtres(Colors.deepPurple[50], "Sonhos", "assets/sonho.jfif"),
+                  const SizedBox(width: 5),
+                  cardtres(Colors.deepPurple[50], "Donuts", "assets/donuts.jpg"),
+                  const SizedBox(width: 5),
+                  cardtres(Colors.deepPurple[50], "Pão de queijo", "assets/paodequeijo.webp"),
+                  const SizedBox(width: 5),
+                  cardtres(Colors.deepPurple[50], "Empada", "assets/empada.webp"),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
-      
     );
   }
 }
